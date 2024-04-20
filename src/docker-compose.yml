@@ -1,0 +1,16 @@
+﻿services:
+  airdropx.web:
+    image: airdropx.web
+    container_name: Airdropx.Web
+    build:
+      context: .
+      dockerfile: Airdropx.Web/Dockerfile
+  postgres:
+    image: postgres:latest
+    container_name: Airdropx.Db
+    environment:
+      POSTGRES_DB: "airdropx"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5000:5432"
